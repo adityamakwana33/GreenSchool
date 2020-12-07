@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GreenSchool.Models.Professor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Professors</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProfessorID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProfessorID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProfessorID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
